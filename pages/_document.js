@@ -8,7 +8,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <title>Docsbliss</title>
+        </Head>
         <body>
           <Main />
           <NextScript />

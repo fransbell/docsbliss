@@ -1,6 +1,5 @@
 import Layout from "../components/Layout"
 import { serialize } from "next-mdx-remote/serialize"
-
 import getTree from "../components/utils/getTree"
 
 const username = process.env.user || "fransbell"

@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    name: build && deploy to surge.sh
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,16 +15,9 @@ jobs:
         node-version: "16.x"
     - run: npm ci
     - run: npm run build
-    
-  deploy:
-    needs: build
-    name: deploy to surge.sh
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to docsbliss.surge.sh
-        uses: dswistowski/surge-sh-action@v1
-        with:
-          domain: 'https://docsbliss.surge.sh'
-          project: './out'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_ACTK }}
+    - uses: dswistowski/surge-sh-action@v1
+      with:
+        domain: 'https://docsbliss.surge.sh'
+        project: './out'
+        login: ${{ secrets.SURGE_LOGIN }}
+        token: ${{ secrets.SURGE_ACTK }}

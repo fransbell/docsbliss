@@ -4,8 +4,10 @@
   "description": "About Documentation / Personal notes powered by github.com that act as a cms | edit easily through the webbrowser",
   "main": "index.js",
   "scripts": {
-    "dev": "rm -rf ./.pathCache && next dev",
-    "export": "next build && next export"
+    "new": "rm -rf ./.pathCache",
+    "dev": "npm run new && next dev",
+    "local": "npm run new && next build && next export",
+    "build": "next build && next export"
   },
   "repository": {
     "type": "git",

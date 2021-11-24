@@ -1,0 +1,40 @@
+### JSX
+
+JSX or Javascript XML is extention to the javascript syntax,
+enabled to write XML-like code for the element for elements and components.
+
+JSX is not necessity to write React but it is more easily to work with JSX than
+create react element from pure javascript.
+
+Essentialy JSX is compiled down to pure javascript.
+
+#### Example of JSX compared to Pure Javascript
+
+##### JSX Component
+
+```
+
+const Hello = () => {
+  return (
+    <div>
+      <h1>Hello World !!!</h1>
+    </div>
+  )
+}
+
+```
+
+##### Pure Javascript Component
+
+```
+
+const Hello = () => {
+  return React.createElement(
+    "div", // element type
+    null, // optional props
+    React.createElement("h1", null, "Hello World!!!") // childern of div element
+  )
+}
+
+
+```

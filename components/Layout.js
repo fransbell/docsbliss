@@ -1,7 +1,15 @@
-import { AppShell, Navbar, Header, createStyles, Text } from "@mantine/core"
+import {
+  AppShell,
+  Navbar,
+  Header,
+  createStyles,
+  Text,
+  Paper,
+} from "@mantine/core"
 import React, { useState } from "react"
 import RecursiveComponent from "./RecursiveTree"
 import { MDXRemote } from "next-mdx-remote"
+import { Prism } from "@mantine/prism"
 
 const pathTo_tree = (patharr) => {
   let result = []
@@ -58,6 +66,11 @@ function Layout({ content, docpath, bread }) {
   const { classes } = useStyles()
   const [opened, setOpened] = useState(false)
   const data = pathTo_tree(docpath)
+  const components = {
+    code: (props) => {
+      return <Prism colorScheme="dark" language="tsx" {...props}></Prism>
+    },
+  }
   return (
     <AppShell
       className={classes.mainShell}
@@ -90,7 +103,7 @@ function Layout({ content, docpath, bread }) {
       ) : (
         ""
       )}
-      <MDXRemote {...content} />
+      <MDXRemote {...content} components={components} />
     </AppShell>
   )
 }

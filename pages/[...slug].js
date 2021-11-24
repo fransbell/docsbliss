@@ -15,7 +15,11 @@ const REPO_URL = `https://api.github.com/repos/${username}/${reponame}/git/trees
 const Post = ({ source, docpath }) => {
   const router = useRouter()
   const { slug } = router.query
-  return <Layout content={source} bread={slug} docpath={docpath} />
+  return (
+    <>
+      <Layout content={source} bread={slug} docpath={docpath} />
+    </>
+  )
 }
 export default Post
 
@@ -25,7 +29,7 @@ export async function getStaticPaths() {
   const path = await getTree()
   return {
     paths: path,
-    fallback: false
+    fallback: false,
   }
 }
 
@@ -35,7 +39,7 @@ export async function getStaticProps({ params }) {
       "/" + params.slug.join("/")
     }.mdx`,
     {
-      method: "GET"
+      method: "GET",
     }
   )
   const path = await getTree()

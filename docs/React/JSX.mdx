@@ -13,7 +13,6 @@ Essentialy JSX is compiled down to pure javascript.
 ##### JSX Component
 
 ```
-
 const Hello = () => {
   return (
     <div>
@@ -21,13 +20,11 @@ const Hello = () => {
     </div>
   )
 }
-
 ```
 
 ##### Pure Javascript Component
 
 ```
-
 const Hello = () => {
   return React.createElement(
     "div", // element type
@@ -35,6 +32,4 @@ const Hello = () => {
     React.createElement("h1", null, "Hello World!!!") // childern of div element
   )
 }
-
-
 ```
